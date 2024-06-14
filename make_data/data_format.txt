@@ -1,0 +1,22 @@
+{
+    "model_input" : html,
+    "ground_truth" : {
+        "title" : "title",
+        "date" : "date",
+        "content" : [
+            {
+                "type" : "txt"
+                "data" : "~~~~"
+            },
+            {
+                "type" : "image",
+                "source" : "~~~~.png"
+            },
+            {
+                "type" : "table",
+                "data" : "~~~~"
+            }
+
+        ]
+    }
+}
