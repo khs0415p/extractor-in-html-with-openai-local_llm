@@ -13,7 +13,7 @@ def main(args):
 
     data = load_data(args.task)
 
-    writer = FileWriter(f"gpt-4o-{args.type_llm}-{args.task}-{args.flow}-test.txt")
+    writer = FileWriter(f"{args.type_llm}-{args.task}-{args.flow}-test.txt")
     agent = Agent(args.type_llm, args.task, args.flow)
 
     for i in tqdm.tqdm(range(TEST_RANGE[0], TEST_RANGE[1])):
