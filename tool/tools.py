@@ -26,11 +26,11 @@ HTML_TOOL = {
                             },
                             "data" : {
                                 "type": "string",
-                                "description" : "Find body content if type is txt or table"
+                                "description" : "If type is txt or table, find body content"
                             },
                             "source" : {
                                 "type": "string",
-                                "description" : "Find image url if type is image"
+                                "description" : "If type is image, find image's url"
                             }
                         }
                     }
