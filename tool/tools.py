@@ -57,6 +57,10 @@ CSS_TOOL = {
                             "path" : {
                                 "type" : "string",
                                 "description" : "Find the css selector of title"
+                            },
+                            "index" : {
+                                "type" : "number",
+                                "description" : "Find the starting index of css selector for the title."
                             }
                         }
                     }
@@ -66,9 +70,25 @@ CSS_TOOL = {
                     "items" : {
                         "type": "object",
                         "properties": {
+                            "type" : {
+                                "type" : "string",
+                                "description" : "The default is normal. if you don't know, leave it blank."
+                            },
                             "path" : {
                                 "type" : "string",
                                 "description" : "Find the css selector of date"
+                            },
+                            "index" : {
+                                "type" : "number",
+                                "description" : "Find the starting index of css selector for the date."
+                            },
+                            "format" : {
+                                "type" : "string",
+                                "description" : "Fine the format of the date. if you don't know, leave it blank."
+                            },
+                            "lang" : {
+                                "type" : "string",
+                                "description" : "Fine the language of the date. if you don't know, fill it null."
                             }
                         }
                     }
@@ -81,6 +101,14 @@ CSS_TOOL = {
                             "path" : {
                                 "type" : "string",
                                 "description" : "Find the css selector of content"
+                            },
+                            "start_index" : {
+                                "type" : "number",
+                                "description" : "Find the starting index of css selector for the content."
+                            },
+                            "end_index" : {
+                                "type" : "number",
+                                "description" : "Find the end index of css selector for the content. if you don't know, leave it null."
                             }
                         }
                     }
