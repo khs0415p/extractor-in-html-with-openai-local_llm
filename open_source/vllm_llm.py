@@ -7,6 +7,11 @@ SYS_PROMPT_MAPPING = {
     "css" : "You are a css selector extrator. Responding with reference to the PREREQUISITES."
 }
 
+PROMPT_MAPPING = {
+    "html" : HTML_PROMPT,
+    "css" : CSS_PROMPT
+}
+
 class OpenSourceLLM:
     def __init__(
         self,
@@ -25,13 +30,15 @@ class OpenSourceLLM:
 
         self.tokenizer = AutoTokenizer.from_pretrained("microsoft/Phi-3-medium-128k-instruct", cache_dir="/data")
 
+        self.promp = PROMPT_MAPPING[self.task]
+
 
     def generate_text(self, html: str):
         # TODO: css selector
         messages = [
             {
                 "role": "user",
-                "content": SYS_PROMPT_MAPPING[self.task] + HTML_PROMPT.format(html)}
+                "content": SYS_PROMPT_MAPPING[self.task] + self.promp.format(html)}
         ]
 
         content = self.tokenizer.apply_chat_template(messages, tokenize=False)
