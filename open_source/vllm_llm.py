@@ -26,21 +26,20 @@ class OpenSourceLLM:
         
         self.sampling_params = SamplingParams(temperature=0., max_tokens=8192, stop=['```', '### INPUT'])
         
-        self.model = LLM(model="microsoft/Phi-3-medium-128k-instruct", max_model_len=35000, dtype="bfloat16", )
+        self.model = LLM(model="microsoft/Phi-3-medium-128k-instruct", max_model_len=50000, dtype="bfloat16", )
 
         self.tokenizer = AutoTokenizer.from_pretrained("microsoft/Phi-3-medium-128k-instruct", cache_dir="/data")
 
-        self.promp = PROMPT_MAPPING[self.task]
-
+        self.prompt = PROMPT_MAPPING[self.task]
 
     def generate_text(self, html: str):
-        # TODO: css selector
         messages = [
             {
                 "role": "user",
-                "content": SYS_PROMPT_MAPPING[self.task] + self.promp.format(html)}
+                "content": SYS_PROMPT_MAPPING[self.task] + self.prompt.format(html)
+            }
         ]
-
+        
         content = self.tokenizer.apply_chat_template(messages, tokenize=False)
 
         output = self.model.generate(content, sampling_params=self.sampling_params)
