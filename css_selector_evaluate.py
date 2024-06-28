@@ -46,16 +46,19 @@ for idx in tqdm.tqdm(random_indices):
                 for item in answer[key]:
                     if isinstance(item, list):
                         for ele in item:
+                            if not item.get('path', None): continue
                             css_selector = ele['path']
                             output = soup.select(css_selector)
                             for tag in output:
                                 predict[key] += tag.text.strip()
                     else:
+                        if not item.get('path', None): continue
                         css_selector = item['path']
                         output = soup.select(css_selector)
                         for tag in output:
                             predict[key] += tag.text.strip()
             else:
+                if not answer[key].get('path', None): continue
                 css_selector = answer[key]['path']
                 output = soup.select(css_selector)
                 for tag in output:
