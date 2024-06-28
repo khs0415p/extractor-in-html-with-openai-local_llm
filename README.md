@@ -68,3 +68,29 @@ Elapsed Time : 00.00000
     ...
 }
 ```
+
+### CSS selector 평가
+
+- 추출된 css selector의 실효성 검사를 위해 `css_selector_evaluate.py`를 통해 평가
+
+- 모델이 예측한 css selector를 beautifulsoup을 이용하여 직접 데이터 추출 및 비교
+
+<br>
+
+__결과 예시__
+
+```
+[PREDICT]
+{
+    "title" : "result with css selector",
+    "date" : "result with css selector",
+    "content" : "result with css selector"
+}
+[ACTUAL]
+{
+    "title" : "real data",
+    "date" : "real data",
+    "content" : "real data"
+}
+...
+```
